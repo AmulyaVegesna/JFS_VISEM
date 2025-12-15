@@ -6,8 +6,8 @@ import java.util.*;
 public class StudentDAO {
 
     private static final String URL = "jdbc:mysql://localhost:3306/skillnext_db";
-    private static final String USER = "root";
-    private static final String PASSWORD = "thakur1506"; // change this
+    private static final String USER = "JFS";
+    private static final String PASSWORD = "Matha2raju"; // change this
 
     // Add students
     public void addStudent(Student stu) throws Exception {
