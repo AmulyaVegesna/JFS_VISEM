@@ -6,13 +6,13 @@ import java.util.*;
 public class EmployeeDAO {
 
     private static final String URL = "jdbc:mysql://localhost:3306/skillnext_db";
-    private static final String USER = "JFS";
+    private static final String USER = "root";
     private static final String PASSWORD = "Matha2raju"; 
 
     // Add employee
     public void addEmployee(Employee emp) throws Exception {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        String sql = "INSERT INTO employee (name, email, salary) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO emplyee (name, email, salary) VALUES (?, ?, ?)";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, emp.getName());
         stmt.setString(2, emp.getEmail());
@@ -25,7 +25,7 @@ public class EmployeeDAO {
     public List<Employee> getAllEmployees() throws Exception {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
         Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM emplyee");
 
         List<Employee> list = new ArrayList<>();
         while (rs.next()) {
@@ -43,7 +43,7 @@ public class EmployeeDAO {
     // Delete employee
     public void deleteEmployee(int id) throws Exception {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        String sql = "DELETE FROM employee WHERE id=?";
+        String sql = "DELETE FROM emplyee WHERE id=?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
         stmt.executeUpdate();
@@ -53,7 +53,7 @@ public class EmployeeDAO {
     // Update employee
     public void updateEmployee(Employee emp) throws Exception {
         Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-        String sql = "UPDATE employee SET name=?, email=?, salary=? WHERE id=?";
+        String sql = "UPDATE emplyee SET name=?, email=?, salary=? WHERE id=?";
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, emp.getName());
         stmt.setString(2, emp.getEmail());
